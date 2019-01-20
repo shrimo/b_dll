@@ -8,10 +8,10 @@ namespace py = boost::python;
 
 py::list boost_main(py::object in_list){	
 	boost::filesystem::path pathDLL = "dll.so";
-	function<py::list(py::object)> funcExt;
+	function<py::list(py::object)> func_ex;
 	funcExt = boost::dll::import<py::list(py::object)>(pathDLL, "get_list");
 	py::list out_list;
-	out_list = funcExt(in_list);
+	out_list = func_ex(in_list);
 	return out_list;
 }
 
